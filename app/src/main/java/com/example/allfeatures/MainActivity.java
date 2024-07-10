@@ -3,6 +3,8 @@ package com.example.allfeatures;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -26,8 +28,11 @@ public class MainActivity extends AppCompatActivity {
     Button buttonCounter;
     int count=0;
     Spinner spinner;
+    Button translate,scale,rotate,alpha,resetBtn;
+
     ArrayList<String> arrLst;
     ArrayAdapter<String> arrayAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +47,26 @@ public class MainActivity extends AppCompatActivity {
         init();
 
 
-
+        resetBtn.setOnClickListener(v->{
+            buttonCounter.clearAnimation();
+        });
+        translate.setOnClickListener(v->{
+            Animation anim = AnimationUtils.loadAnimation(this,R.anim.translate);
+            //buttonCounter.setAnimation(anim); // when the screen refreshed/loads
+            buttonCounter.startAnimation(anim);
+        });
+        alpha.setOnClickListener(v->{
+            Animation anim = AnimationUtils.loadAnimation(this,R.anim.alpha);
+            buttonCounter.startAnimation(anim);
+        });
+        rotate.setOnClickListener(v->{
+            Animation anim = AnimationUtils.loadAnimation(this,R.anim.rotate);
+            buttonCounter.startAnimation(anim);
+        });
+        scale.setOnClickListener(v->{
+            Animation anim = AnimationUtils.loadAnimation(this,R.anim.scale);
+            buttonCounter.startAnimation(anim);
+        });
         buttonCounter.setOnClickListener(v->{
             count++;
             updateUi();
@@ -65,6 +89,11 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
         buttonCounter=findViewById(R.id.buttonCounter);
         spinner=findViewById(R.id.spinner);
+        translate=findViewById(R.id.translate);
+        rotate =findViewById(R.id.rotate);
+        scale=findViewById(R.id.scale);
+        alpha=findViewById(R.id.alpha);
+        resetBtn=findViewById(R.id.resetBtn);
         initializeSpinnerRequirements();
         spinner.setAdapter(arrayAdapter);
     }

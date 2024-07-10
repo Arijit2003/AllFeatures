@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/anticipate_interpolator">
+
+<!--    current position referred as  0-->
+
+    <translate android:fromXDelta="-200"
+        android:toXDelta="200"
+        android:duration="700"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite" />
+
+
+<!--    android:interpolator="@android:anim/linear_interpolator"  &ndash;&gt; rate of change in animation-->
+<!--    android:startOffset="2000" &#45;&#45;waiting time before an animation starts-->
+<!--    android:repeatMode="restart" &#45;&#45;two repeatation: reverse/restart-->
+<!--    android:repeatCount="infinite" &#45;&#45;or any number-->
+<!--    android:duration="2000"-->
+
+
+</set>
