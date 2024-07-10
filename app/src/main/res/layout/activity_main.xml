@@ -77,6 +77,16 @@
         android:layout_above="@id/rotate"
         android:layout_centerHorizontal="true"
         android:layout_margin="26dp"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/buttonCounter"
+        android:layout_centerHorizontal="true"
+        app:lottie_rawRes="@raw/lottie_android"
+        app:lottie_repeatCount="5"
+        app:lottie_repeatMode="reverse"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"/>
 
 
 
