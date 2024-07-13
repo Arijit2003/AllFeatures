@@ -1,7 +1,7 @@
-package com.example.allfeatures;
+package com.example.allfeatures.activites;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -19,7 +19,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.lang.reflect.Array;
+import com.example.allfeatures.R;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonCounter;
     int count=0;
     Spinner spinner;
-    Button translate,scale,rotate,alpha,resetBtn;
+    Button translate,scale,rotate,alpha,resetBtn,nextBtn;
 
     ArrayList<String> arrLst;
     ArrayAdapter<String> arrayAdapter;
@@ -71,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
             count++;
             updateUi();
         });
+        nextBtn.setOnClickListener(v->{
+            startActivity(new Intent(this,ContainerActivity.class));
+        });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int pos, long l) {
@@ -96,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
         resetBtn=findViewById(R.id.resetBtn);
         initializeSpinnerRequirements();
         spinner.setAdapter(arrayAdapter);
+        nextBtn=findViewById(R.id.nextBtn);
     }
 
     private void initializeSpinnerRequirements(){
